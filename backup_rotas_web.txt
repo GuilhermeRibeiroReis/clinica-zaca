@@ -1,0 +1,61 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MedicoController;
+use App\Http\Controllers\Auth\RegisterAdminController;
+use App\Http\Controllers\ConsultaController;
+use App\Http\Controllers\AdministrativoController;
+
+// Rota para mostrar o formulário de criação de consulta
+Route::get('/consultas/create', [ConsultaController::class, 'create'])->name('consultas.create');
+
+// Rota para buscar médicos com base na especialidade
+Route::get('/medicos/por-especialidade/{especialidadeId}', [ConsultaController::class, 'buscarMedicosPorEspecialidade'])->name('medicos.buscarPorEspecialidade');
+
+// Rota para salvar a consulta
+Route::post('/consultas', [ConsultaController::class, 'store'])->name('consultas.store');
+
+Route::get('/consulta/buscar-paciente/{idPaciente}', [ConsultaController::class, 'buscarPaciente']);
+
+// ADMINISTRATIVOS
+Route::get('/administrativo/create', [AdministrativoController::class, 'create'])->name('administrativo.create');
+Route::post('/administrativo', [AdministrativoController::class, 'store'])->name('administrativo.store');
+
+// Página inicial (landing page)
+Route::get('/', function () {
+    // Você pode passar alguma variável para a view welcome aqui, se necessário
+    return view('welcome');
+})->name('welcome');
+
+// Rota de login
+Route::get('/welcome', function () {
+    return view('welcome');
+})->name('welcome');
+
+// Médicos
+Route::get('/medicos', [MedicoController::class, 'index']);
+Route::get('/medicos/criar', [MedicoController::class, 'criar']);
+Route::get('/medicos/listar', [MedicoController::class, 'listar']);
+Route::post('medicos', [MedicoController::class, 'store']);
+
+// Rota de cadastro de administrador
+Route::get('/registerAdmin', [RegisterAdminController::class, 'showForm'])->name('registerAdmin');
+Route::post('/registerAdmin', [RegisterAdminController::class, 'register']);
+
+// Autenticação (com o middleware)
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/', function () {
+        session()->flash('msg', 'Texto saindo da Route(WEB): Voce ja esta logado!');
+        return view('welcome');
+    })->name('welcome');
+});
+
+Route::middleware('auth')->group(function () {
+    // Rota para a agenda do médico
+    Route::get('/medicos/agenda', [MedicoController::class, 'agenda'])->name('medicos.agenda');
+});
+
