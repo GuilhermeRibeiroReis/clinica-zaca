@@ -1,0 +1,108 @@
+/* General */
+* {
+    font-family: 'Roboto';
+  }
+  
+  body {
+    min-height: 100vh;
+    padding-bottom: 100px;
+    position: relative;
+  }
+
+  h1 {
+    text-align: center;
+  }
+  
+  header {
+    background-color: #FFF;
+    border-bottom: 1px solid #CCC;
+  }
+
+  .tituloPagina {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    size: 14px;
+  }
+
+  .centraliza {
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    width: 500px;
+  }
+  
+  .centralizar-formulario {
+    justify-content: center; /* Alinha o formulário horizontalmente */
+    align-items: center; /* Alinha o formulário verticalmente */
+    height: 100vh; /* Define a altura da área de visualização para preencher a tela inteira */
+}
+
+.formulario {
+    width: 800px; /* Largura do formulário */
+    padding: 20px; /* Espaçamento interno para o conteúdo do formulário */
+    background-color: #f8f9fa; /* Cor de fundo */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave ao redor do formulário */
+}
+  .row {
+    margin: 0;
+  }
+  
+  .container-fluid {
+    padding: 0;
+  }
+  
+  .btn-primary {
+    background-color: #F2A340;
+    border: 2px solid #C28008;
+  }
+  
+  .btn-primary:hover {
+    background-color: #C28008;
+    border-color: #C28008;
+  }
+  
+  /* navbar */
+  #navbar img {
+    width: 40px;
+  }
+  
+  #navbar {
+    justify-content: space-between;
+    background-color: #FFF;
+    padding: 5px 0;
+  }
+  
+  #navbar a {
+    font-size: 14px;
+    color: #757575;
+  }
+  
+  #navbar a:hover {
+    color: #F2A340;
+  }
+  
+  /* footer */
+  footer {
+    text-align: center;
+    background-color: #353E48;
+    color: #FFF;
+    padding: 30px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  footer p {
+    margin-bottom: 0;
+  }
+
+
+.msg {
+
+    background-color:lightgreen;
+    color:darkgreen;
+    border: 1px solid;
+    width: 100%;
+    padding: 10px;
+}
