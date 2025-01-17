@@ -8,7 +8,7 @@
     <h2>Cadastre-se aqui e seja nosso paciente</h2>
 @endif
 
-
+<x-guest-layout>
 
     <x-validation-errors class="mb-4" />
 
@@ -17,7 +17,7 @@
             @csrf
 
             <div class="form-floating mb-3">
-                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}" required autofocus placeholder="Nome">
+                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}" required autofocus placeholder="Name">
                 <label for="name">Nome</label>
                 @error('name')
                     <div class="invalid-feedback">
@@ -37,7 +37,7 @@
             </div>
 
             <div class="form-floating mb-3">
-                <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" required placeholder="Senha">
+                <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" required placeholder="Password">
                 <label for="password">Senha</label>
                 @error('password')
                     <div class="invalid-feedback">
@@ -47,7 +47,7 @@
             </div>
 
             <div class="form-floating mb-3">
-                <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" id="password_confirmation" name="password_confirmation" required placeholder="Confirme a Senha">
+                <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" id="password_confirmation" name="password_confirmation" required placeholder="Confirm Password">
                 <label for="password_confirmation">Confirme a Senha</label>
                 @error('password_confirmation')
                     <div class="invalid-feedback">
@@ -80,6 +80,6 @@
         </form>
     </div>
 
-
+</x-guest-layout>
 
 @endsection

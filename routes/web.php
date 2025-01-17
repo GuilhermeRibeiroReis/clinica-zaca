@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\RegisterAdminController;
 use App\Http\Controllers\ConsultaController;
 use App\Http\Controllers\AdministrativoController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use Laravel\Fortify\Fortify;
 
 
 // Rota de login
